@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
-module.exports = (app) => {
+//module.exports = (app) => {
 
-    //     name: String,
-    //     signup_date: Date,
-    //     description: String,
-    //     image: String
-    
-    }
+//     name: String,
+//     signup_date: Date,
+//     description: String,
+//     image: String
+
+//}
