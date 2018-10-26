@@ -4,8 +4,16 @@ const Schema = mongoose.Schema;
 //Created artist schema 
 const artistSchema = new Schema({
     artist_name: String,
-    email: String,
-    password: String,
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true,
+        unique: true
+    },
     registration_date: {
         type: Date,
         default: Date.now

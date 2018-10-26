@@ -5,8 +5,15 @@ const donatorSchema = new Schema({
     //account_id: mongoose.Types.ObjectId(),
     //need to create account id with object id
     donator_name: String,
-    email: String,
-    password: String,
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
     registration_date: {
         type: Date,
         default: Date.now
