@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //Created artist schema 
-const ArtistSchema = new Schema({
-    artistname: String,
+const artistSchema = new Schema({
+    artist_name: String,
     email: String,
     password: String,
     registration_date: {
@@ -11,16 +11,10 @@ const ArtistSchema = new Schema({
         default: Date.now
     },
     description: String,
+    location: String,
     image: String
 
 })
 
-// module.exports = (app) => {
-
-//     name: String,
-//     location: String, 
-//     signup_date: Date,
-//     description: String,
-//     image: String
-
-// }
+const Artist = mongoose.model('Artist', artistSchema);
+module.exports = Artist;

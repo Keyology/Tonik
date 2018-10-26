@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-// module.exports = (app) => {
+const commnetSchema = new Schema({
+    comment: String,
+    creatd: Date,
 
-//     title: String,
-//     description: String
+})
 
-// }
+
+const Comment = mongoose.model('comment', commnetSchema);
+module.exports = Comment;
