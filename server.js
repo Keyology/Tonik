@@ -43,17 +43,16 @@ app.use(methodOverride(''));
 // set the static files location /public/img will be /img for users
 app.use(express.static(__dirname + '/public'));
 
-//ROUTES
-require('./app/routes/artists');
-require('./app/routes/comments');
-require('./app/routes/donators');
-require('./app/routes/songs');
+//CONTROLLERS
+require('./app/routes/artists.js');
+require('./app/routes/comments.js');
+require('./app/routes/donators.js');
+require('./app/routes/songs.js');
 
-//Models
-
-require('./app/models/artist');
-require('./app/models/donator');
-require('./app/models/song');
+//MODELS
+require('./app/models/artist.js');
+require('./app/models/donator.js');
+require('./app/models/song.js');
 require('./app/models/comment.js');
 
 
