@@ -3,8 +3,10 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const home = require('./app/routes')
+const artist = require('./app/routes/secure-routes/artist')
 const mongoose = require('mongoose');
-//const routes = require('./app/routes');
+const routes = require('./app/routes/index')
 
 //PORT
 const port = process.env.PORT || 3000;
@@ -35,6 +37,10 @@ app.use(bodyParser.urlencoded({
 //Simulate DELETE/PUT
 app.use(methodOverride(''));
 
+app.use('/', routes);
+app.use('/artist', artist);
+//routes.initialize(app);
+
 //use routes directory for finding routes
 //app.use('/', routes);
 
@@ -44,16 +50,16 @@ app.use(methodOverride(''));
 app.use(express.static(__dirname + '/public'));
 
 //CONTROLLERS
-require('./app/routes/artists.js');
-require('./app/routes/comments.js');
-require('./app/routes/donators.js');
-require('./app/routes/songs.js');
+//require('./app/routes/artists.js');
+//require('./app/routes/comments.js');
+//require('./app/routes/donators.js');
+//require('./app/routes/songs.js');
 
 //MODELS
-require('./app/models/artist.js');
-require('./app/models/donator.js');
-require('./app/models/song.js');
-require('./app/models/comment.js');
+//require('./app/models/artist.js');
+//require('./app/models/donator.js');
+//require('./app/models/song.js');
+//require('./app/models/comment.js');
 
 
 

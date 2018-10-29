@@ -20,7 +20,8 @@ const donatorSchema = new Schema({
     },
 
     description: String,
-    image: String
+    image: String,
+    age: Number
 
 
 

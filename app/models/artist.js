@@ -20,7 +20,8 @@ const artistSchema = new Schema({
     },
     description: String,
     location: String,
-    image: String
+    image: String,
+    age: Number
 
 })
 
