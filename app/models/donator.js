@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const donatorSchema = new Schema({
     //account_id: mongoose.Types.ObjectId(),
     //need to create account id with object id
+    account_id: mongoose.Schema.Types.ObjectId,
     donator_name: String,
     email: {
         type: String,

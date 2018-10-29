@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const Artist = require('..//..//models/artist')
-const Donator = require('..//..//models/donator');
+const Artist = require('..//..//models/artist');
 const bycrypt = require('bcrypt');
 
 
@@ -22,7 +21,7 @@ router.post('/artistsignup', (req, res) => {
 
         } else {
             const artist = new Artist({
-                _id: new mongoose.Types.ObjectId(),
+                account_id: new mongoose.Types.ObjectId(),
                 email: req.body.email,
                 password: hash,
                 artist_name: req.body.name,
@@ -36,7 +35,7 @@ router.post('/artistsignup', (req, res) => {
             artist.save().then(result => {
                 console.log(result);
                 res.status(200).json({
-                    success: 'New user created'
+                    success: 'New user has been created'
                 });
 
             }).catch(error => {
