@@ -37,9 +37,10 @@ app.use(bodyParser.urlencoded({
 //Simulate DELETE/PUT
 app.use(methodOverride(''));
 
+// tells express to check out routes directory for routes
 app.use('/', routes);
 app.use('/artist', artist);
-//routes.initialize(app);
+
 
 //use routes directory for finding routes
 //app.use('/', routes);

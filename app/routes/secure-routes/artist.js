@@ -20,6 +20,7 @@ router.post('/artistsignup', (req, res) => {
             });
 
         } else {
+            // models out how the user input will be stored into our database
             const artist = new Artist({
                 account_id: new mongoose.Types.ObjectId(),
                 email: req.body.email,
@@ -32,9 +33,11 @@ router.post('/artistsignup', (req, res) => {
 
 
             });
+            //saves user input into database and check for errors
             artist.save().then(result => {
                 console.log(result);
                 res.status(200).json({
+                    //sends us a json confirmation that a new user has been added to our database
                     success: 'New user has been created'
                 });
 
@@ -48,5 +51,14 @@ router.post('/artistsignup', (req, res) => {
 
 
 });
+
+router.post('/artistlogin', (req, res) => {
+    // This route will handle when a user login
+})
+
+
+router.get('/artistprofile', (req, res) => {
+    // This route will send a query to the mongodb and return the artist profile info in a json object
+})
 
 module.exports = router;
