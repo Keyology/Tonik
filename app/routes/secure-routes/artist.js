@@ -54,6 +54,33 @@ router.post('/artistsignup', (req, res) => {
 
 router.post('/artistlogin', (req, res) => {
     // This route will handle when a user login
+    Artist.findOne({
+            email: req.body.email
+        })
+        .exec()
+        .then(artist => {
+            bycrypt.compare(req.body.password, artist.password, (err, result) => {
+                if (err) {
+                    return res.status(401).json({
+                        failed: 'Unauthorized Acess'
+                    });
+                }
+                if (result) {
+                    return res.status(200).json({
+                        success: 'artist  signed in'
+                    });
+
+                }
+                return res.status(401).json({
+                    failed: 'Unauthorized Access'
+                });
+            });
+        }).catch(error => {
+            res.status(500).json({
+                error: error
+            });
+        });
+
 })
 
 
