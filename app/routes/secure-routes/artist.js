@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Artist = require('..//..//models/artist');
 const bycrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 
 router.post('/artistsignup', (req, res) => {
@@ -66,11 +67,21 @@ router.post('/artistlogin', (req, res) => {
                     });
                 }
                 if (result) {
-                    return res.status(200).json({
-                        success: 'artist  signed in'
-                    });
+                    const JWTToken = jwt.sign({
+                            email: artist.email,
+                            _id: artist._id
+                        },
+                        'secrect', {
+                            expiresIn: '2h'
+                        });
 
+                    return res.status(200).json({
+                        success: " user assigned jwt auth",
+                        token: JWTToken
+                    });
                 }
+
+
                 return res.status(401).json({
                     failed: 'Unauthorized Access'
                 });
@@ -81,7 +92,24 @@ router.post('/artistlogin', (req, res) => {
             });
         });
 
+    /*if (result) {
+        const JWTToken = jwt.sign({
+                email: artist.email,
+                _id: artist._id
+            },
+            'secrect', {
+                expiresIn: '2h'
+            });
+
+        return res.status(200).json({
+            success: " user assigned jwt auth",
+            token: JWTToken
+        });
+    }*/
+
 })
+
+
 
 
 router.get('/artistprofile', (req, res) => {
