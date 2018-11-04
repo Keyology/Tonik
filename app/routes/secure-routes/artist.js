@@ -56,17 +56,21 @@ router.post('/artistsignup', (req, res) => {
 router.post('/artistlogin', (req, res) => {
     // This route will handle when a user login
     Artist.findOne({
+            //checks database to see if email is a match
             email: req.body.email
         })
         .exec()
         .then(artist => {
+            //decrypts password in database and compares password user submit to find match 
             bycrypt.compare(req.body.password, artist.password, (err, result) => {
                 if (err) {
+                    //if the email or password dose't match throw error 
                     return res.status(401).json({
                         failed: 'Unauthorized Acess'
                     });
                 }
                 if (result) {
+                    //if password and email exist in database create a jwt token
                     const JWTToken = jwt.sign({
                             email: artist.email,
                             _id: artist._id
@@ -76,6 +80,7 @@ router.post('/artistlogin', (req, res) => {
                         });
 
                     return res.status(200).json({
+                        //send jwt token to artist
                         success: " user assigned jwt auth",
                         token: JWTToken
                     });
@@ -87,6 +92,7 @@ router.post('/artistlogin', (req, res) => {
                 });
             });
         }).catch(error => {
+            //handles error on server side
             res.status(500).json({
                 error: error
             });
