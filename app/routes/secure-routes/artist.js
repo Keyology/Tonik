@@ -81,6 +81,7 @@ router.post('/artistlogin', (req, res) => {
 
                     return res.status(200).json({
                         //send jwt token to artist
+                        //send jwt token to cookies 
                         success: " user assigned jwt auth",
                         token: JWTToken
                     });
