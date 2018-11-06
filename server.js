@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const home = require('./app/routes')
 const artist = require('./app/routes/secure-routes/artist')
+const donators = require('./app/routes/secure-routes/donators')
 const mongoose = require('mongoose');
 const routes = require('./app/routes/index')
 
@@ -40,7 +41,7 @@ app.use(methodOverride(''));
 // tells express to check out routes directory for routes
 app.use('/', routes);
 app.use('/artist', artist);
-
+app.use('/donators', donators);
 
 //use routes directory for finding routes
 //app.use('/', routes);
