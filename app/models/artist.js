@@ -3,7 +3,11 @@ const Schema = mongoose.Schema;
 
 //Created artist schema 
 const artistSchema = new Schema({
-    artist_name: String,
+    artist_name: {
+        type: String,
+        required: true,
+        unique: true
+    },
     account_id: mongoose.Schema.Types.ObjectId,
     email: {
         type: String,
