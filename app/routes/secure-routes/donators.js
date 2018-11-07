@@ -85,5 +85,17 @@ router.post('/donatorlogin', (req, res) => {
 
 router.get('/donatorProfile', (req, res) => {
     //This route will query the database and return user profile info
+
+    Donators.find({
+        donators_name: req.params.donators_name
+    }, (err, Donators) => {
+        if (err) {
+            res.json({
+                error: err
+            })
+        } else {
+            res.json(Donators)
+        }
+    })
 })
 module.exports = router;
