@@ -69,12 +69,14 @@ router.post('/artistlogin', (req, res) => {
                             expiresIn: '2h'
                         });
 
-                    return res.status(200).json({
-                        //send jwt token to artist
-                        //send jwt token to cookies 
-                        success: " user assigned jwt auth",
-                        token: JWTToken
-                    });
+                    //  return res.status(200).json({
+                    //     //send jwt token to artist
+                    //     //send jwt token to cookies 
+                    //     success: " user assigned jwt auth",
+                    //     token: JWTToken
+                    // });
+
+                    return res.cookie(JWTToken).status(200)
                 }
 
 
