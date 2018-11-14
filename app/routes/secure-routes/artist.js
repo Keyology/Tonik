@@ -43,7 +43,7 @@ router.post('/signup', (req, res) => {
 
 })
 
-router.post('/artistlogin', (req, res) => {
+router.post('/login', (req, res) => {
     // This route will handle when a user login
     Artist.findOne({
             //checks database to see if email is a match
