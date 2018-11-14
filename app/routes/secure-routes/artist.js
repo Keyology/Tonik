@@ -7,7 +7,7 @@ const bycrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 
-router.post('/artistsignup', (req, res) => {
+router.post('/signup', (req, res) => {
     //This route will handle how artist are signed up
 
     bycrypt.hash(req.body.password, 10, (err, hash) => {
@@ -75,7 +75,7 @@ router.post('/artistlogin', (req, res) => {
                     //     success: " user assigned jwt auth",
                     //     token: JWTToken
                     // });
-
+                    console.log("new account")
                     return res.cookie(JWTToken).status(200)
                 }
 
