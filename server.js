@@ -1,6 +1,8 @@
 //DEPENDECIES
+const cors = require('cors');
 const express = require('express');
 const app = express();
+app.use(cors());
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 // const home = require('./app/routes')
