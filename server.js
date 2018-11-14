@@ -3,11 +3,11 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-const home = require('./app/routes')
+// const home = require('./app/routes')
 const artist = require('./app/routes/secure-routes/artist')
 const donators = require('./app/routes/secure-routes/donators')
 const mongoose = require('mongoose');
-const routes = require('./app/routes/index')
+//  const routes = require('./app/routes/index')
 
 //PORT
 const port = process.env.PORT || 3000;
@@ -39,7 +39,7 @@ app.use(bodyParser.urlencoded({
 app.use(methodOverride(''));
 
 // tells express to check out routes directory for routes
-app.use('/', routes);
+// app.use('/', routes);
 app.use('/artist', artist);
 app.use('/donators', donators);
 
