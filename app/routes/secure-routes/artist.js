@@ -75,7 +75,7 @@ router.post('/artistlogin', (req, res) => {
                     //     success: " user assigned jwt auth",
                     //     token: JWTToken
                     // });
-                    console.log("new account")
+
                     return res.cookie(JWTToken).status(200)
                 }
 
