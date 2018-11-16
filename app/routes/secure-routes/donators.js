@@ -6,7 +6,7 @@ const Donators = require('..//..//models/donator');
 const bycrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-router.post('/signup', (req, res) => {
+router.post('/donatorsignup', (req, res) => {
 
     bycrypt.hash(req.body.password, 10, (err, hash) => {
         if (err) {
@@ -38,7 +38,7 @@ router.post('/signup', (req, res) => {
 })
 
 
-router.post('/login', (req, res) => {
+router.post('/donatorlogin', (req, res) => {
     //this route will handle user login
     Donators.findOne({
             email: req.body.email
