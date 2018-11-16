@@ -6,8 +6,8 @@ const Donators = require('..//..//models/donator');
 const bycrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-router.post('/donatorsignup', (req, res) => {
-
+router.post('/signup', (req, res) => {
+    console.log(req.body.password)
     bycrypt.hash(req.body.password, 10, (err, hash) => {
         if (err) {
             return res.status(500).json({
@@ -18,7 +18,7 @@ router.post('/donatorsignup', (req, res) => {
                 account_id: new mongoose.Types.ObjectId(),
                 email: req.body.email,
                 password: hash,
-                donators_name: req.body.name,
+                donator_name: req.body.name,
                 location: req.body.location,
                 age: req.body.age
             });
@@ -38,7 +38,7 @@ router.post('/donatorsignup', (req, res) => {
 })
 
 
-router.post('/donatorlogin', (req, res) => {
+router.post('/login', (req, res) => {
     //this route will handle user login
     Donators.findOne({
             email: req.body.email
