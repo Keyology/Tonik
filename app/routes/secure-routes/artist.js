@@ -26,10 +26,19 @@ router.post('/signup', (req, res) => {
                 age: req.body.age
             });
             artist.save().then(result => {
+
+                const JWTToken = jwt.sign({
+                        email: artist.email,
+                        _id: artist._id
+                    },
+                    'secrect', {
+                        expiresIn: '2h'
+                    });
                 console.log(result);
-                res.status(200).json({
-                    sucess: "New artist has joined"
-                });
+                return res.json(JWTToken).status(200)
+                // res.status(200).json({
+                //     sucess: "New artist has joined"
+                // });
             }).catch(error => {
                 console.log(error);
                 res.status(500).json({
