@@ -85,7 +85,7 @@ router.post('/login', (req, res) => {
                     //     token: JWTToken
                     // });
 
-                    return res.cookie(JWTToken).status(200)
+                    return res.jason(JWTToken).status(200)
                 }
 
 
