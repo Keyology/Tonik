@@ -24,6 +24,9 @@ mongoose.connect(db.url, {
     useCreateIndex: true
 });
 
+app.get('/', (req,res) => {
+    res.send('in development')
+})
 //PARSE APP/JSON
 app.use(bodyParser.json());
 
