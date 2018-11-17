@@ -12,7 +12,7 @@ const mongoose = require('mongoose');
 //  const routes = require('./app/routes/index')
 
 //PORT
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 //CONFIG FILES
 const db = require('./config/db');
@@ -24,7 +24,7 @@ mongoose.connect(db.url, {
     useCreateIndex: true
 });
 
-app.get('/', (req,res) => {
+app.get('/', (req, res) => {
     res.send('in development')
 })
 //PARSE APP/JSON
