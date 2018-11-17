@@ -15,7 +15,7 @@ const mongoose = require('mongoose');
 const port = process.env.PORT || 3000;
 
 //CONFIG FILES
-var db = require('./config/db');
+const db = require('./config/db');
 
 //DATABASE
 //config credentials
