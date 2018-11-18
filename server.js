@@ -9,7 +9,8 @@ const methodOverride = require('method-override');
 const artist = require('./app/routes/secure-routes/artist')
 const donators = require('./app/routes/secure-routes/donators')
 const mongoose = require('mongoose');
-//  const routes = require('./app/routes/index')
+const fileUpload = require('./app/routes/secure-routes/fileupload')
+
 
 //PORT
 const port = process.env.PORT || 5000;
@@ -24,9 +25,9 @@ mongoose.connect(db.url, {
     useCreateIndex: true
 });
 
-app.get('/', (req, res) => {
-    res.send('in development')
-})
+// app.get('/', (req, res) => {
+//     res.send('in development')
+// })
 //PARSE APP/JSON
 app.use(bodyParser.json());
 
@@ -47,6 +48,7 @@ app.use(methodOverride(''));
 // app.use('/', routes);
 app.use('/artist', artist);
 app.use('/donators', donators);
+app.use('/audio-upload', fileUpload)
 
 //use routes directory for finding routes
 //app.use('/', routes);
