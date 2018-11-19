@@ -48,7 +48,7 @@ app.use(methodOverride(''));
 // app.use('/', routes);
 app.use('/artist', artist);
 app.use('/donators', donators);
-app.use('/audio-upload', fileUpload)
+app.use('/fileUpload', fileUpload)
 
 //use routes directory for finding routes
 //app.use('/', routes);

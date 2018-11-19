@@ -6,6 +6,8 @@ const upload = require('..//..//aws-login')
 const express = require('express');
 const router = express.Router();
 const Songs = require('../../models/song');
+require('dotenv').config('../.env')
+
 
 
 
@@ -24,7 +26,7 @@ router.post('/audio-upload', (req, res) => {
             });
         } else {
             const songs = new Songs({
-                artist_name: req.param.artist_name,
+                artist_name: req.body.artist_name,
                 song_title: req.body.song_title,
                 song_link: req.file.location,
                 genre: req.body.genre
