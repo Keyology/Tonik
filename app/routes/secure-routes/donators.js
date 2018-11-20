@@ -83,7 +83,7 @@ router.post('/login', (req, res) => {
 
 })
 
-router.get('/donatorProfile', (req, res) => {
+router.get('/donatorProfile/:name', (req, res) => {
     //This route will query the database and return user profile info
 
     Donators.find({
