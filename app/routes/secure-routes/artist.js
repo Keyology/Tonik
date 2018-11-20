@@ -112,9 +112,7 @@ router.get('/artistprofile/:name', (req, res) => {
 
     Artist.find({
         artist_name: req.params.name
-        // description: req.param.description,
-        // location: req.param.location,
-        // age: req.param.age
+
 
     }, (err, Artist) => {
         if (err) {
