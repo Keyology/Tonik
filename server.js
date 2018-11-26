@@ -5,7 +5,6 @@ const app = express();
 app.use(cors());
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-// const home = require('./app/routes')
 const artist = require('./app/routes/secure-routes/artist')
 const donators = require('./app/routes/secure-routes/donators')
 const mongoose = require('mongoose');
@@ -45,30 +44,19 @@ app.use(bodyParser.urlencoded({
 app.use(methodOverride(''));
 
 // tells express to check out routes directory for routes
-// app.use('/', routes);
+
 app.use('/artist', artist);
 app.use('/donators', donators);
 app.use('/fileUpload', fileUpload)
 
 //use routes directory for finding routes
-//app.use('/', routes);
+
 
 
 
 // set the static files location /public/img will be /img for users
 app.use(express.static(__dirname + '/public'));
 
-//CONTROLLERS
-//require('./app/routes/artists.js');
-//require('./app/routes/comments.js');
-//require('./app/routes/donators.js');
-//require('./app/routes/songs.js');
-
-//MODELS
-//require('./app/models/artist.js');
-//require('./app/models/donator.js');
-//require('./app/models/song.js');
-//require('./app/models/comment.js');
 
 
 
