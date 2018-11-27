@@ -107,11 +107,11 @@ router.post('/login', (req, res) => {
 
 
 
-router.get('/artistprofile/:name', (req, res) => {
+router.get('/artistprofile/:email', (req, res) => {
     // This route will send a query to the mongodb and return the artist profile info in a json object
 
     Artist.find({
-        artist_name: req.params.name
+        email: req.params.email
 
 
     }, (err, Artist) => {

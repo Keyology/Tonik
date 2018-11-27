@@ -17,16 +17,10 @@ const port = process.env.PORT || 5000;
 //CONFIG FILES
 const db = require('./config/db');
 
-//DATABASE
-//config credentials
-mongoose.connect(db.url, {
-    useNewUrlParser: true,
-    useCreateIndex: true
-});
 
-// app.get('/', (req, res) => {
-//     res.send('in development')
-// })
+
+
+
 //PARSE APP/JSON
 app.use(bodyParser.json());
 
