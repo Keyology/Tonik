@@ -12,7 +12,12 @@ const fileUpload = require('./app/routes/secure-routes/fileupload')
 
 //create a cors middleware
 app.use(function (req, res, next) {
-    //set headers to allow cross origin request.
+    /**
+     * set headers to allow cross origin request.
+     * This can also be used to whitelist certain websites 
+     * to allow them access to the server.
+     */
+
     res.header("Access-Control-Allow-Origin", "*");
     res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
