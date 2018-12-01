@@ -11,12 +11,12 @@ const mongoose = require('mongoose');
 const fileUpload = require('./app/routes/secure-routes/fileupload')
 
 //create a cors middleware
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     //set headers to allow cross origin request.
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-        next();
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
 });
 
 //PORT
@@ -24,9 +24,6 @@ const port = process.env.PORT || 5000;
 
 //CONFIG FILES
 const db = require('./config/db');
-
-
-
 
 
 //PARSE APP/JSON
@@ -45,15 +42,10 @@ app.use(bodyParser.urlencoded({
 //Simulate DELETE/PUT
 app.use(methodOverride(''));
 
-// tells express to check out routes directory for routes
-
-app.use('/artist', artist);
-app.use('/donators', donators);
-app.use('/fileUpload', fileUpload)
-
-//use routes directory for finding routes
-
-
+// setting routes for the app.
+artist(app);
+donators(app);
+fileUpload(app);
 
 
 // set the static files location /public/img will be /img for users

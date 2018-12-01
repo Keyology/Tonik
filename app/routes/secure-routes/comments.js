@@ -1,5 +1,11 @@
 // This file will contain routes that allow user to crud comments and associate them to the song they belong to
 const Comment = require('../../models/comment');
+const mongoose = require('mongoose');
+
+/**
+ * Comments Router 
+ * @author Carlos Alba
+ */
 
 module.exports = (app) => {
 
@@ -61,10 +67,8 @@ module.exports = (app) => {
             if (err) {
                 res.json({ error: err });
             }
-        })
+        });
 
-    })
-
-
+    });
 
 }
