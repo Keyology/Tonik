@@ -8,7 +8,7 @@ const artistSchema = new Schema({
         required: true,
         unique: true
     },
-    account_id: mongoose.Schema.Types.ObjectId,
+    account_id: Schema.Types.ObjectId,
     email: {
         type: String,
         required: true,
@@ -31,7 +31,7 @@ const artistSchema = new Schema({
         required: true
     }
 
-})
+});
 
-const Artist = mongoose.model('Artist', artistSchema);
-module.exports = Artist;
+
+module.exports = mongoose.model('Artist', artistSchema);

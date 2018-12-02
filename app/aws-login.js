@@ -23,7 +23,6 @@ const upload = multer({
         fileFilter: (req, file, cb) => {
             if (!file.originalname.match(/\.(MP3|MP4|)$/)) {
                 return cb(new Error('Only MP3 or MP4 files are allowed!'), false);
-
             }
             cb(null, true);
 

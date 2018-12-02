@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+/**
+ * Song data model
+ */
 const songsSchema = new Schema({
     artist_name: {
         type: String,
