@@ -13,7 +13,12 @@ const audioStream = require('./app/routes/secure-routes/stream')
 
 //create a cors middleware
 app.use(function (req, res, next) {
-    //set headers to allow cross origin request.
+    /**
+     * set headers to allow cross origin request.
+     * This can also be used to whitelist certain websites 
+     * to allow them access to the server.
+     */
+
     res.header("Access-Control-Allow-Origin", "*");
     res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -25,9 +30,6 @@ const port = process.env.PORT || 5000;
 
 //CONFIG FILES
 const db = require('./config/db');
-
-
-
 
 
 //PARSE APP/JSON
@@ -46,16 +48,10 @@ app.use(bodyParser.urlencoded({
 //Simulate DELETE/PUT
 app.use(methodOverride(''));
 
-// tells express to check out routes directory for routes
-
-app.use('/artist', artist);
-app.use('/donators', donators);
-app.use('/fileUpload', fileUpload);
-//app.use('/audio', audioStream);
-
-//use routes directory for finding routes
-
-
+// setting routes for the app.
+artist(app);
+donators(app);
+fileUpload(app);
 
 
 // set the static files location /public/img will be /img for users

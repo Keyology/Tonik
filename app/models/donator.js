@@ -1,10 +1,18 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+/**
+ * Donator model
+ *  Edited by @author Carlos Alba
+ */
+
 const donatorSchema = new Schema({
     //account_id: mongoose.Types.ObjectId(),
     //need to create account id with object id
-    account_id: mongoose.Schema.Types.ObjectId,
+    account_id: {
+        type: Schema.Types.ObjectId,
+        required: true
+    },
     donator_name: String,
     email: {
         type: String,
@@ -19,14 +27,9 @@ const donatorSchema = new Schema({
         type: Date,
         default: Date.now
     },
-
     description: String,
     image: String,
     age: Number
-
-
-
 })
 
-const Donator = mongoose.model('Donator', donatorSchema);
-module.exports = Donator;
+module.exports = mongoose.model('Donator', donatorSchema);
