@@ -3,12 +3,15 @@ const Schema = mongoose.Schema;
 
 //Created artist schema 
 const artistSchema = new Schema({
+
+    account_id: mongoose.Schema.Types.ObjectId,
+
     artist_name: {
         type: String,
         required: true,
         unique: true
     },
-    account_id: mongoose.Schema.Types.ObjectId,
+
     email: {
         type: String,
         required: true,
@@ -24,12 +27,26 @@ const artistSchema = new Schema({
         default: Date.now
     },
     description: String,
+
     location: String,
-    image: String,
+
+    //image: String,
+    //could save image in a s3 bucket 
+
     age: {
         type: Number,
         required: true
-    }
+    },
+    songs: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Songs'
+
+
+        }
+
+    ]
+
+
 
 })
 

@@ -26,16 +26,16 @@ router.post('/audio-upload', (req, res) => {
             });
         } else {
             const songs = new Songs({
-                artist_name: req.body.artist_name,
+                //might need to changr to email
+                //artist_name: req.params.artist_name,
                 song_title: req.body.song_title,
                 song_link: req.file.location,
-                genre: req.body.genre
 
             });
             songs.save().then(() => {
                 console.log('file saved to database and s3')
                 return res.json({
-                    'imageUrl': req.file.location,
+                    'audioUrl': req.file.location,
                     "fileSaved": "file has been saved to db and s3"
 
 
