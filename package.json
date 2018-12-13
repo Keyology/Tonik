@@ -7,7 +7,10 @@
     "start": "node server.js",
     "test": "mocha"
   },
-  "author": "",
+  "keywords": [
+    "heroku"
+  ],
+  "author": "Keoni Murray",
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.358.0",
@@ -27,6 +30,6 @@
     "npm-check-updates": "^2.15.0"
   },
   "engines": {
-    "node": "10.x"
+    "node": "11.x"
   }
 }
