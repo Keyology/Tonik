@@ -13,6 +13,7 @@ const audioStream = require('./app/routes/secure-routes/stream')
 
 //create a cors middleware
 app.use(function (req, res, next) {
+    
     /**
      * set headers to allow cross origin request.
      * This can also be used to whitelist certain websites 
