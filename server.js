@@ -2,7 +2,7 @@
 // const cors = require('cors');
 const express = require('express');
 const app = express();
-app.use(cors());
+// app.use(cors());
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const artist = require('./app/routes/secure-routes/artist')
